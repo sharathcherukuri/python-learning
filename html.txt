@@ -1,0 +1,1191 @@
+
+
+
+<!-- Calculate the lesson slug for use across this page -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+  
+
+<meta name="citation_title" content="Creating and Viewing HTML Files with Python" />
+
+<meta name="citation_author" content="William J. Turkel" />
+
+<meta name="citation_author" content="Adam Crymble" />
+
+<meta name="citation_publication_date" content="2012-07-17" />
+<meta name="citation_journal_title" content="Programming Historian" />
+<meta name="citation_public_url" content="https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python" />
+
+  
+
+  
+  <!--https://dev.twitter.com/cards/-->
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ProgHist" />
+<meta name="twitter:title" content="Creating and Viewing HTML Files with Python" />
+
+
+    <meta name="twitter:description" content="Here you will learn how to create HTML files with Python scripts, and how to use Python to automatically open an HTML file in Firefox." />
+
+
+<meta name="twitter:image" content="https://programminghistorian.org/gallery/creating-and-viewing-html-files-with-python.png" />
+
+  
+
+  <link rel="shortcut icon" href="/images/favicons/en_favicon.ico" type="image/x-icon">
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+  <link href='/feed.xml' rel='alternate' type='application/atom+xml'>
+
+  <title>Creating and Viewing HTML Files with Python | Programming Historian</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Crete+Round|Open+Sans|Quattrocento|Roboto|Roboto+Condensed" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" media="all">
+  <link rel="stylesheet" href="/css/github.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="/js/ext_links.js"></script>
+  <script type="text/javascript" src="/js/header_links.js"></script>
+
+  
+  
+
+  <script src="/js/bootstrap-4-navbar.js"></script>
+
+
+</head>
+
+
+  <body>
+    <main>
+      <div class="hide-screen">
+        
+        
+
+<div class="alert alert-success sitewide-alert text-center">
+  <h2><a href="https://www.patreon.com/theprogramminghistorian" class="alert-link">Donate to <i>The Programming Historian</i> today!</a></h2>
+
+</div>
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="hide-screen navbar navbar-toggleable-sm navbar-dark bg-dark"
+  style="background-color: #444444" role="navigation">
+  <!--<div class="container">-->
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/">The Programming
+    Historian</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="nav navbar-nav ml-auto w-100 justify-content-end" role="menubar">
+      <li class="nav-item dropdown mobile-drop" role="menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" role="button">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/en/about"
+            role="menuitem">About PH</a>
+          <a class="dropdown-item" href="/en/project-team"
+            role="menuitem">Project Team</a>
+          <a class="dropdown-item" href="/en/research"
+            role="menuitem">Research</a>
+          <a class="dropdown-item" href="/en/privacy-policy"
+            role="menuitem">Privacy Policy</a>
+          <a class="dropdown-item" href="/translation-concordance"
+            role="menuitem">Translation Concordance</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown mobile-drop" role="menu">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false" role="button">
+          Contribute
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+          <a class="dropdown-item"
+            href="/en/contribute"
+            role="menuitem">Overview</a>
+          <a class="dropdown-item"
+            href="/en/feedback"
+            role="menuitem">Feedback</a>
+          <a class="dropdown-item" href="/en/reviewer-guidelines"
+            role="menuitem">Reviewer Guidelines</a>
+          <a class="dropdown-item" href="/en/author-guidelines"
+            role="menuitem">Author Guidelines</a>
+          <a class="dropdown-item" href="/en/translator-guidelines"
+            role="menuitem">Translator Guidelines</a>
+          <a class="dropdown-item" href="/en/editor-guidelines"
+            role="menuitem">Editor Guidelines</a>
+          <a class="dropdown-item" href="/en/lesson-requests"
+            role="menuitem">Lesson Requests</a>
+          <a class="dropdown-item"
+            href="/en/lesson-retirement-policy"
+            role="menuitem">Lesson Retirement Policy</a>
+          <a class="dropdown-item" href="/en/support-us"
+            role="menuitem">Support Us</a>
+          <a class="dropdown-item"
+            href="https://github.com/programminghistorian/jekyll/wiki/Making-Technical-Contributions"
+            role="menuitem">Technical Contributions</a>
+        </div>
+      </li>
+
+      <li class="nav-item" role="menuitem">
+        <a class="nav-link" href="/en/lessons"
+          role="menuitem">Lessons</a>
+      </li>
+
+      <li class="nav-item" role="menuitem">
+        <a class="nav-link" href="/blog"
+          role="menuitem">Blog</a>
+      </li>
+
+      
+
+      <li class="nav-item">
+        <div class="btn-group" role="group" aria-label="Language selector">
+          
+
+          
+          <a class="btn btn-secondary nav-link active disabled" role="button"
+            aria-pressed="true">en</a>
+          
+          
+
+          
+          
+
+          
+          <a class="btn btn-secondary nav-link" role="button"
+            href="/es/lecciones/crear-y-ver-archivos-html-con-python">es</a>
+          
+          
+          
+
+          
+          
+
+          
+          <a class="btn btn-secondary nav-link" role="button"
+            href="/fr">fr</a>
+          
+          
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--</div>-->
+</nav>
+
+<nav class="hide-print print-header navbar-brand">The Programming Historian </nav>
+
+      </div>
+      <div class="hide-print print-header">
+        <h1>The Programming Historian</h1>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+
+  <div class="container-fluid">
+
+    <div class="container expanded">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="header-image rounded">
+            <img src="/gallery/creating-and-viewing-html-files-with-python.png" alt="Child drawing on a tablet">
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="header-title">
+            <h1><a href="/en/lessons/creating-and-viewing-html-files-with-python">Creating and Viewing HTML Files with Python</a></h1>
+          </div>
+
+          <div class="header-author">
+            <h2>
+
+
+
+William J. Turkel and Adam Crymble</h2>
+          </div>
+
+          <div class="header-abstract">
+            <p>Here you will learn how to create HTML files with Python scripts, and how to use Python to automatically open an HTML file in Firefox.</p>
+
+          </div>
+
+          <div class="container expanded">
+            <div class="row d-flex justify-content-left">
+              
+              <div class="peer-review mr-5">
+                <p>
+                  
+                    <i class="fas fa-user-check"></i> Peer-reviewed
+                    
+                </p>
+              </div>
+              
+              <div class="open-license mr-5">
+                <p><a href="https://creativecommons.org/licenses/by/4.0/deed.en"><i class="fas fa-lock-open"></i> CC-BY
+                    4.0</a></p>
+              </div>
+              <div class="donate mr-5">
+                <p><a
+                    href="https://programminghistorian.org/en/support-us#donate-to-us"><i
+                      class="fas fa-credit-card"></i> Support PH</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="container-fluid header-helpers">
+    <div class="container expanded">
+      
+      
+      <div class="col-6 p-0 m-0">
+        
+          <div class="d-flex flex-wrap flex-md-row flex-column justify-content-between">
+            <div>
+              <h3>edited by</h3>
+              <ul>
+                
+                
+                <li>Miriam Posner</li>
+                
+              </ul>
+            </div>
+
+            <div>
+              <h3>reviewed by</h3>
+              <ul>
+                
+                
+                <li>Jim Clifford
+                </li>
+                
+              </ul>
+            </div>
+
+            
+
+            
+
+            
+          </div>
+        </div>
+      </div> <!-- end row -->
+    </div>
+
+    <div class="container-fluid header-bottom">
+      <div class="container expanded">
+        <div class="d-flex flex-wrap flex-md-row flex-column justify-content-between">
+          <div class="metarow">
+            <h4>published</h4> 2012-07-17
+          </div>
+          
+          
+          <div class="metarow">
+            <h4>modified</h4> <span
+              id="modified-date">2012-07-17</span>
+          </div>
+          
+          <div class="metarow">
+            <h4>difficulty</h4> 
+
+Medium
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+</header>
+
+<div class="container">
+
+  
+  
+<div class="alert alert-success hide-screen"><h2 id="donate-today">Donate today!</h2>
+
+<p>Great Open Access tutorials cost money to produce. Join the growing number of people <a href="https://www.patreon.com/theprogramminghistorian">supporting <em>The Programming Historian</em></a> so we can continue to share knowledge free of charge.</p>
+</div>
+
+  
+
+  
+  <!-- Banner pointing to translations of this lesson when they exist -->
+  <div class="alert alert-warning">
+    This lesson has been translated into
+    Spanish: <a
+      href="/es/lecciones/crear-y-ver-archivos-html-con-python">Crear y ver archivos HTML con Python</a>
+  </div>
+  
+
+  
+  
+
+  
+
+  
+
+
+  
+  <div class="series-warning alert alert-info">
+    This lesson is part of a series. You might want to check out the <a
+      href="counting-frequencies">previous lesson</a>.
+  </div>
+  
+
+  <div class="content">
+    
+<h2 class="no_toc" id="contents">Contents</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#lesson-goals" id="markdown-toc-lesson-goals">Lesson Goals</a></li>
+  <li><a href="#files-needed-for-this-lesson" id="markdown-toc-files-needed-for-this-lesson">Files Needed For This Lesson</a></li>
+  <li><a href="#creating-html-with-python" id="markdown-toc-creating-html-with-python">Creating HTML with Python</a></li>
+  <li><a href="#hello-world-in-html-using-python" id="markdown-toc-hello-world-in-html-using-python">“Hello World” in HTML using Python</a></li>
+  <li><a href="#using-python-to-control-firefox" id="markdown-toc-using-python-to-control-firefox">Using Python to Control Firefox</a>    <ul>
+      <li><a href="#mac-instructions" id="markdown-toc-mac-instructions">Mac Instructions</a></li>
+      <li><a href="#windows-instructions" id="markdown-toc-windows-instructions">Windows Instructions</a></li>
+    </ul>
+  </li>
+  <li><a href="#suggested-readings" id="markdown-toc-suggested-readings">Suggested Readings</a></li>
+  <li><a href="#code-syncing" id="markdown-toc-code-syncing">Code Syncing</a></li>
+</ul>
+
+<h2 id="lesson-goals">Lesson Goals</h2>
+
+<p>This lesson uses Python to create and view an HTML file. If you write
+programs that output HTML, you can use any browser to look at your
+results. This is especially convenient if your program is automatically
+creating hyperlinks or graphic entities like charts and diagrams.</p>
+
+<p>Here you will learn how to create HTML files with Python scripts, and
+how to use Python to automatically open an HTML file in Firefox.</p>
+
+<h2 id="files-needed-for-this-lesson">Files Needed For This Lesson</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">obo.py</code></li>
+</ul>
+
+<p>If you do not have these files from the previous lesson, you can
+download programming-historian-5, a <a href="/assets/python-lessons5.zip">zip file from the previous lesson</a>.</p>
+
+<h2 id="creating-html-with-python">Creating HTML with Python</h2>
+
+<p>At this point, we’ve started to learn how to use Python to download
+online sources and extract information from them automatically. Remember
+that our ultimate goal is to incorporate programming seamlessly into our
+research practice. In keeping with this goal, in this lesson and the
+next, we will learn how to output data back as HTML. This has a few
+advantages. First, by storing the information on our hard drive as an
+HTML file we can open it with Firefox and use <a href="https://zotero.org">Zotero</a> to index and
+annotate it later. Second, there are a wide range of visualization
+options for HTML which we can draw on later.</p>
+
+<p>If you have not done the <a href="https://www.w3schools.com/html/default.asp">W3 Schools HTML tutorial</a> yet, take a few
+minutes to do it before continuing. We’re going to be creating an HTML
+document using Python, so you will have to know what an HTML document
+is!</p>
+
+<h2 id="hello-world-in-html-using-python">“Hello World” in HTML using Python</h2>
+
+<p>One of the more powerful ideas in computer science is that a file that
+seems to contain code from one perspective can be seen as data from
+another. It is possible, in other words, to write programs that
+manipulate other programs. What we’re going to do next is create an HTML
+file that says “Hello World!” using Python. We will do this by storing
+HTML <em>tags</em> in a multiline Python <em>string</em> and saving the contents to a new
+file. This file will be saved with an <code class="language-plaintext highlighter-rouge">.html</code> extension rather than a
+<code class="language-plaintext highlighter-rouge">.txt</code> extension.</p>
+
+<p>Typically an HTML file begins with a <a href="https://www.w3schools.com/tags/tag_doctype.asp">doctype declaration</a>. You saw
+this when you wrote an HTML “Hello World” program in an earlier lesson.
+To make reading our code easier, we will omit the doctype in this
+example. Recall a multi-line string is created by enclosing the text in
+three quotation marks (see below).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># write-html.py
+</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'helloworld.html'</span><span class="p">,</span><span class="s">'wb'</span><span class="p">)</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="s">"""&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;p&gt;Hello World!&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;"""</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Save the above program as <code class="language-plaintext highlighter-rouge">write-html.py</code> and execute it. Use <em>File -&gt;
+Open</em> in your chosen text editor to open <code class="language-plaintext highlighter-rouge">helloworld.html</code> to verify that
+your program actually created the file. The content should look like
+this:</p>
+
+<figure>
+    <img src="/images/creating-and-viewing-html-files-with-python/hello-world-html.png" alt="HTML Source Generated by Python Program" />
+<figcaption>
+    <p>HTML Source Generated by Python Program</p>
+
+</figcaption>
+</figure>
+
+<p>Now go to your Firefox browser and choose <em>File -&gt; New Tab</em>, go to the
+tab, and choose <em>File -&gt; Open File</em>. Select <code class="language-plaintext highlighter-rouge">helloworld.html</code>. You
+should now be able to see your message in the browser. Take a moment to
+think about this: you now have the ability to write a program which can
+automatically create a webpage. There is no reason why you could not
+write a program to automatically create a whole website if you wanted
+to.</p>
+
+<h2 id="using-python-to-control-firefox">Using Python to Control Firefox</h2>
+
+<p>We automatically created an HTML file, but then we had to leave our
+editor and go to Firefox to open the file in a new tab. Wouldn’t it be
+cool to have our Python program include that final step? Type or copy
+the code below and save it as <code class="language-plaintext highlighter-rouge">write-html-2.py</code>. When you execute it, it
+should create your HTML file and then automatically open it in a new tab
+in Firefox. Sweet!</p>
+
+<h3 id="mac-instructions">Mac Instructions</h3>
+
+<p>Mac users will have to specify to the precise location of the <code class="language-plaintext highlighter-rouge">.html</code>
+file on their computer. To do this, locate the <code class="language-plaintext highlighter-rouge">programming-historian</code>
+folder you created to do these tutorials, right-click it and select “Get
+Info”.</p>
+
+<p>You can then cut and paste the file location listed after “Where:” and
+make sure you include a trailing slash (/) to let the computer know you
+want something inside the directory (rather than the directory itself).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># write-html-2-mac.py
+</span><span class="kn">import</span> <span class="nn">webbrowser</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'helloworld.html'</span><span class="p">,</span><span class="s">'wb'</span><span class="p">)</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="s">"""&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;p&gt;Hello World!&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;"""</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1">#Change path to reflect file location
+</span><span class="n">filename</span> <span class="o">=</span> <span class="s">'file:///Users/username/Desktop/programming-historian/'</span> <span class="o">+</span> <span class="s">'helloworld.html'</span>
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If you’re getting a “File not found” error you haven’t changed the
+filename path correctly.</p>
+
+<h3 id="windows-instructions">Windows Instructions</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># write-html-2-windows.py
+</span>
+<span class="kn">import</span> <span class="nn">webbrowser</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'helloworld.html'</span><span class="p">,</span><span class="s">'wb'</span><span class="p">)</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="s">"""&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;p&gt;Hello World!&lt;/p&gt;&lt;/body&gt;
+&lt;/html&gt;"""</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">webbrowser</span><span class="o">.</span><span class="n">open_new_tab</span><span class="p">(</span><span class="s">'helloworld.html'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>***</p>
+
+<p>Not only have you written a Python program that can write simple HTML,
+but you’ve now controlled your Firefox browser using Python. In the next
+lesson, we turn to outputting the data that we have collected as an HTML
+file.</p>
+
+<h2 id="suggested-readings">Suggested Readings</h2>
+
+<ul>
+  <li>Lutz, Learning Python
+    <ul>
+      <li>Re-read and review Chs. 1-17</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="code-syncing">Code Syncing</h2>
+
+<p>To follow along with future lessons it is important that you have the
+right files and programs in your “programming-historian” directory. At
+the end of each lesson in the series you can download the “programming-historian” zip
+file to make sure you have the correct code. If you are following along
+with the Mac / Linux version you may have to open the <code class="language-plaintext highlighter-rouge">obo.py</code> file and
+change “file:///Users/username/Desktop/programming-historian/” to the
+path to the directory on your own computer.</p>
+
+<ul>
+  <li>python-lessons6.zip <a href="/assets/python-lessons6.zip">zip sync</a></li>
+</ul>
+
+
+  </div>
+
+  
+  <div class="series-warning alert alert-info">
+    Great! Now you're ready to move on to the <a
+      href="output-data-as-html-file">next lesson</a>.
+  </div>
+  
+
+  
+
+
+
+<div class="author-info">
+    <h5 class="author-name">About the authors</h5>
+</div>
+<div class="author-description">
+  
+     
+     
+         <p>William J. Turkel is Professor of History at the
+University of Western Ontario.
+<p>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+     
+     
+     
+     
+     
+     
+         <p>Adam Crymble is a senior lecturer of digital history.
+<p>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+</div>
+
+
+  <div class="citation-info">
+    
+    
+    
+
+    <h5 class="suggested-citation-header">Suggested Citation</h5>
+    <div class="suggested-citation-text">
+      <p class="suggested-citation-text">
+
+
+
+William J. Turkel and Adam Crymble,
+        "Creating and Viewing HTML Files with Python,"
+        <em>The Programming Historian</em> 1 (2012),
+        https://programminghistorian.org/en/lessons/creating-and-viewing-html-files-with-python.</p>
+    </div>
+  </div>
+
+  
+  
+<div class="alert alert-success hide-screen"><h2 id="donate-today">Donate today!</h2>
+
+<p>Great Open Access tutorials cost money to produce. Join the growing number of people <a href="https://www.patreon.com/theprogramminghistorian">supporting <em>The Programming Historian</em></a> so we can continue to share knowledge free of charge.</p>
+</div>
+
+  
+
+</div>
+</div>
+
+<script>
+  (function () {
+    var githubAPI = "https://api.github.com/repos/programminghistorian/jekyll/commits";
+    $.getJSON(githubAPI, {
+      path: "en/lessons/creating-and-viewing-html-files-with-python.md"
+    })
+      .done(function (data) {
+        var date = new Date(data[0].commit.author.date);
+        var formatted_date = new Intl.DateTimeFormat('sv').format(date)
+        $("#modified-date").text(formatted_date);
+      });
+  })();
+</script>
+
+      
+
+<footer role="contentinfo" style="background-color: #444444">
+
+
+<div class="d-flex flex-wrap justify-content-center footer-head">
+  <p><em>The Programming Historian</em> (ISSN: 2397-2068) is released under a <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC-BY</a> license.</p>
+<p>This project is administered by ProgHist Limited, Company Number <a href="https://beta.companieshouse.gov.uk/company/12192946">12192946</a>.</p>
+
+</div>
+
+<div class="d-flex flex-wrap justify-content-around">
+  <div class="mx-4">
+     
+    <strong>
+      <p>
+        <a href="/">ISSN 2397-2068 (English)</a>
+      </p>
+      </strong>  
+      <p>
+        <a href="/es">ISSN 2517-5769 (Spanish)</a>
+      </p>
+        
+      <p>
+        <a href="/fr">ISSN 2631-9462 (French)</a>
+      </p>
+       
+  </div>
+  <div class="mx-4">
+    <i class="fab fa-github" aria-hidden="true"></i>
+    <a href="https://github.com/programminghistorian/jekyll">Hosted on GitHub</a>
+  </div>
+
+  <div class="mx-4">
+  <i class="fa fa-calendar" aria-hidden="true"></i>
+    <a href="https://github.com/programminghistorian/jekyll/commits/gh-pages">Site last updated 26 February 2020</a>
+  </div>
+ 
+ <div class="mx-4">
+  <i class="fas fa-rss" aria-hidden="true"></i>
+  <a href="https://programminghistorian.org/feed.xml">RSS feed subscriptions</a>
+  </div>
+ 
+  <div class="mx-4">
+  <i class="fa fa-history" aria-hidden="true"></i>
+  <a href="https://github.com/programminghistorian/jekyll/commits/gh-pages/en/lessons/creating-and-viewing-html-files-with-python.md">See page history</a>
+  </div>
+
+  <div class="mx-4">
+  <i class="fa fa-bolt" aria-hidden="true"></i>
+  <a href="/en/feedback">Make a suggestion</a>
+  </div>
+
+  </div>
+
+</footer>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2752866-8']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+    </main>
+  </body>
+
+</html>

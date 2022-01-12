@@ -1,0 +1,7 @@
+open command prompt where the python meeting_rooms.py is located and run the following command.
+
+python meeting_rooms.py -teamData {arg1} -roomsTextFilePath {arg2}
+
+Example:
+python meeting_rooms.py -teamData 5,8,10:30,11:30 -roomsTextFilePath C:\Users\arun\Desktop\GoutamAssessment\rooms.txt
+
